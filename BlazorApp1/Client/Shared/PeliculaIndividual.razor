@@ -1,0 +1,23 @@
+﻿<div class="border border-dark m-2">
+    <p><b>Nombre:</b>@peli.Titulo</p>
+    <p><b>Fecha:</b>@peli.Lanzamiento.ToShortDateString()</p>
+    <div class="border border-dark m-2">
+        <label class="m-2">Visualizar Botones</label>
+        <input type="checkbox" @bind="mostrarBotones"/>
+        @if (mostrarBotones)
+            {
+                <button class="m-2" @onclick="@(() => eliminarPeli.InvokeAsync(peli))">Borrar</button>    
+            }
+    </div>
+</div>
+
+
+@code {
+
+    [Parameter] public Pelicula peli{ get; set; }
+    [Parameter] public bool mostrarBotones { get; set; } = false;
+    [Parameter] public EventCallback<Pelicula> eliminarPeli { get; set; } //Llamando a método del componente padre desde el hijo
+    //bool mostrarBotones = false;
+
+    
+}

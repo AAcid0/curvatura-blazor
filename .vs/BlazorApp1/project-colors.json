@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4ffcef88-0caf-4202-a6b1-e7f09759c5b7": {
+      "ProjectGuid": "4ffcef88-0caf-4202-a6b1-e7f09759c5b7",
+      "DisplayName": "BlazorApp1.Server",
+      "ColorIndex": 0
+    },
+    "b1db4c7b-1b44-4d6a-98c1-865889bd9b52": {
+      "ProjectGuid": "b1db4c7b-1b44-4d6a-98c1-865889bd9b52",
+      "DisplayName": "BlazorApp1.Client",
+      "ColorIndex": 1
+    },
+    "a263bd04-6ea7-4167-8197-097d4d5dd92a": {
+      "ProjectGuid": "a263bd04-6ea7-4167-8197-097d4d5dd92a",
+      "DisplayName": "BlazorApp1.Shared",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

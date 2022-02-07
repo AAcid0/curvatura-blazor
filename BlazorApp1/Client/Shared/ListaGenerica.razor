@@ -1,0 +1,39 @@
+﻿@typeparam Titem 
+
+@if (Listado == null)
+{
+    @if (esNulo == null)
+    {
+        <text>Cargando desde es NUlo</text>
+    }
+    else
+    {
+        @esNulo
+    }
+}
+else if (Listado.Count == 0){
+    @if (sinRegistros == null)
+    {
+        <text>Cargando desde es sinRegistros</text>
+    }
+    else
+    {
+        @sinRegistros
+    }
+    
+}
+else
+{
+    foreach (var item in Listado)
+    {
+        @conRegistros(item);
+    }
+}
+
+@code {
+    [Parameter] public RenderFragment esNulo { get; set; } //Pasar contenido como parametro
+    [Parameter] public RenderFragment sinRegistros { get; set; } //Pasar contenido como parametro
+    [Parameter] public RenderFragment<Titem> conRegistros { get; set; }
+    [Parameter] public List<Titem> Listado { get; set; } //Para recibir como parametro (prop) cualquier tipo de dato
+
+}

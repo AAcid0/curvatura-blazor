@@ -1,0 +1,27 @@
+﻿@page "/"
+@inject IRepositorio repo
+<div>
+    <h1>Hello, @stringOpc.toMayus("Peliculas")</h1>
+    <VerPeliculas listaPeliculas="Peliculas"/>
+</div>
+<div>
+    <button @onclick="agregarPelicula" class="btn btn-primary">Agregar</button>
+</div>
+@code{
+
+
+    //public string nomPeli;
+    //public DateTime fechaPeli;
+    //private List<Pelicula> obtenerPeliculas1(){ return new List<Pelicula>(); }
+    private List<Pelicula> Peliculas;
+    protected override void OnInitialized()
+    {
+        Peliculas = repo.ObtenerPeliculas();
+    }
+    void agregarPelicula()
+    {
+        Peliculas.Add(new Pelicula() { Titulo = "La última", Lanzamiento = DateTime.Today });
+    }
+
+    
+}
