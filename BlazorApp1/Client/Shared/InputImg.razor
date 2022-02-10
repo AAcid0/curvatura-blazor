@@ -1,0 +1,43 @@
+﻿<div>
+    <label>@label</label>
+    <div>
+        <InputFile OnChange="OnChange" accept=".jpg,.jpeg,.png"/> @*Para subir varios archivos se agrega el parametro multiple*@
+    </div>
+</div>
+<div>
+    @if(base64 != null)
+    {
+        <div>
+            <div class="m-1">
+                <img src="data:image/jpeg;base64, @base64" style="width:400px"> 
+            </div>
+        </div>
+    }
+    @if(ImagenUrl != null)
+    {
+        <div>
+            <div class="m-1">
+                <img src="@ImagenUrl" style="width:400px"> 
+            </div>
+        </div>
+    }
+</div>
+@code {
+    [Parameter] public string label { get; set; } = "Imagen";
+    [Parameter] public string ImagenUrl { get; set; }
+    [Parameter] public EventCallback<string> ImagenSeleccionada { get; set; }
+    private string base64;
+    async Task OnChange(InputFileChangeEventArgs e)
+    {
+        var imagenes = e.GetMultipleFiles();
+        foreach (var imagen in imagenes)
+        {
+            var arrbytes = new byte[imagen.Size];
+            await imagen.OpenReadStream().ReadAsync(arrbytes);
+            base64 = Convert.ToBase64String(arrbytes);
+            ImagenUrl = null;
+            await ImagenSeleccionada.InvokeAsync(base64);
+            StateHasChanged();
+        }
+    }
+}

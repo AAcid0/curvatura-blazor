@@ -103,6 +103,13 @@ using BlazorApp1.Client.Repositorios;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Pages\Counter.razor"
+using MathNet.Numerics.Statistics;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -112,22 +119,22 @@ using BlazorApp1.Client.Repositorios;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Pages\Counter.razor"
+#line 10 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Pages\Counter.razor"
        
     private int currentCount = 0;
 
-    private void IncrementCount()
+    public async Task IncrementCount()
     {
+        var arreglo = new double[] { 1, 2, 3, 4, 5 };
+        var mini = arreglo.Maximum();
+        var maxi = arreglo.Minimum();
+        Console.WriteLine(mini.ToString()+"-"+ maxi.ToString());
         currentCount++;
-        singleton.valor = currentCount;
-        transient.valor = currentCount;
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ServiciosTransient transient { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ServiciosSingleton singleton { get; set; }
     }
 }
 #pragma warning restore 1591

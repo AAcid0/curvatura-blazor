@@ -1,23 +1,28 @@
-﻿<div class="border border-dark m-2">
-    <p><b>Nombre:</b>@peli.Titulo</p>
-    <p><b>Fecha:</b>@peli.Lanzamiento.ToShortDateString()</p>
-    <div class="border border-dark m-2">
-        <label class="m-2">Visualizar Botones</label>
-        <input type="checkbox" @bind="mostrarBotones"/>
-        @if (mostrarBotones)
-            {
-                <button class="m-2" @onclick="@(() => eliminarPeli.InvokeAsync(peli))">Borrar</button>    
-            }
+﻿<div style="margin-right: 2%; margin-bottom: 10px; text-align: center;">
+    <a href="@urlPelicula">
+        <img src="@peli.UrlPoster" alt="Poster" style="width: 225px; height:300px;" />
+    </a>
+    <p style="max-width: 225px; height: 44px; font-size: 15px; font-weight: bold;"><a href="@urlPelicula">@peli.TituloCortado</a></p>
+    <div>
+        <a class="btn btn-info">Editar</a>
+        <button type="button" class="btn btn-danger"
+                @onclick="@(() => eliminarPeli.InvokeAsync(peli))">
+            Borrar
+        </button>
     </div>
 </div>
-
 
 @code {
 
     [Parameter] public Pelicula peli{ get; set; }
-    [Parameter] public bool mostrarBotones { get; set; } = false;
+    //[Parameter] public bool mostrarBotones { get; set; } = false;
     [Parameter] public EventCallback<Pelicula> eliminarPeli { get; set; } //Llamando a método del componente padre desde el hijo
-    //bool mostrarBotones = false;
+                                                                          //bool mostrarBotones = false;
+    private string urlPelicula = string.Empty;
 
-    
+    protected override void OnInitialized()
+    {
+        urlPelicula = $"/pelicula/";
+
+    }
 }

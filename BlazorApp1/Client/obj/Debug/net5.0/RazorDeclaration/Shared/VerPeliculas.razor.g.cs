@@ -111,44 +111,32 @@ using BlazorApp1.Client.Repositorios;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 13 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Shared\VerPeliculas.razor"
+#line 12 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Shared\VerPeliculas.razor"
        
-    Confirmacion confirmacion;
 
     //public List<Pelicula> listaPelis; Para pasar las pelis por parametro se hace lo de la sgt linea
     [Parameter] public List<Pelicula> listaPeliculas { get; set; }  //PARAMETRO
 
 
-    bool mostrarBotones = false;
+    
     Pelicula peliABorrar;
     async Task eliminarPeli(Pelicula pelicula)
     {
-        confirmacion.Mostrar();
         peliABorrar = pelicula;
         //EEJEMPLO DE INVOCACION DE FUNCIÓN JAVASCRIPT
-        //var conf = await js.InvokeAsync<bool>("confirm", $"¿Desea eliminar {pelicula.Titulo}?");
-        //if (conf)
-        //{
-        //    listaPeliculas.Remove(pelicula);
-        //    Console.WriteLine($"Se ha eliminado {pelicula.Titulo}");
-        //}
-        //else
-        //{
-        //    Console.WriteLine("Se ha cancelado la acción");
-        //}
+        var conf = await js.InvokeAsync<bool>("confirm", $"¿Desea eliminar {pelicula.Titulo}?");
+        if (conf)
+        {
+            listaPeliculas.Remove(pelicula);
+            Console.WriteLine($"Se ha eliminado {pelicula.Titulo}");
+        }
+        else
+        {
+            Console.WriteLine("Se ha cancelado la acción");
+        }
 
     }
-    void confirmacionEliminado()
-    {
-        listaPeliculas.Remove(peliABorrar);
-        confirmacion.Ocultar();
-        peliABorrar = null;
-    }
-
-    void cancelarEliminado()
-    {
-        confirmacion.Ocultar();    
-    }
+    
 
 #line default
 #line hidden

@@ -115,11 +115,16 @@ using BlazorApp1.Client.Repositorios;
        
 
     [Parameter] public Pelicula peli{ get; set; }
-    [Parameter] public bool mostrarBotones { get; set; } = false;
+    //[Parameter] public bool mostrarBotones { get; set; } = false;
     [Parameter] public EventCallback<Pelicula> eliminarPeli { get; set; } //Llamando a método del componente padre desde el hijo
-    //bool mostrarBotones = false;
+                                                                          //bool mostrarBotones = false;
+    private string urlPelicula = string.Empty;
 
-    
+    protected override void OnInitialized()
+    {
+        urlPelicula = $"/pelicula/";
+
+    }
 
 #line default
 #line hidden

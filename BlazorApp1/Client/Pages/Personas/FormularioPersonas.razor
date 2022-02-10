@@ -1,0 +1,44 @@
+﻿<h3>Formulario Personas</h3>
+
+<EditForm Model="persona" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator/>
+    <div class="form-group">
+        <label><b>Nombre</b></label>
+        <div>
+            <InputText class="form-control" @bind-Value="@persona.Nombre"/>
+            <ValidationMessage For="(() => persona.Nombre)"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label><b>Fecha Nacimiento</b></label>
+        <div>
+            <InputDate class="form-control" @bind-Value="@persona.FechaNacimiento"/>
+            <ValidationMessage For="(() => persona.FechaNacimiento)"/>
+        </div>
+        <div class="form-group">
+            <InputImg label="Foto" ImagenSeleccionada="imagenSeleccionada" ImagenUrl="@imagenUrl"/>
+        </div>
+    </div>
+    <button class="btn btn-success">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Persona persona { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+    string imagenUrl;
+
+    protected override void OnInitialized()
+    {
+        if (!string.IsNullOrEmpty(persona.Foto))
+        {
+            imagenUrl = persona.Foto;
+            persona.Foto = null;
+        }
+    }
+
+    protected void imagenSeleccionada(string base64)
+    {
+        persona.Foto = base64;
+        imagenUrl = null;
+    }
+}

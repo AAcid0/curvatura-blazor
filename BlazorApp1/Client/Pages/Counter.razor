@@ -1,23 +1,22 @@
 ﻿@page "/counter"
-@inject ServiciosSingleton singleton
-@inject ServiciosTransient transient
-
+@using MathNet.Numerics.Statistics;
 
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
-<p>Singleton count: @singleton.valor</p>
-<p>Transient count: @transient.valor</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
     private int currentCount = 0;
 
-    private void IncrementCount()
+    public async Task IncrementCount()
     {
+        var arreglo = new double[] { 1, 2, 3, 4, 5 };
+        var mini = arreglo.Maximum();
+        var maxi = arreglo.Minimum();
+        Console.WriteLine(mini.ToString()+"-"+ maxi.ToString());
         currentCount++;
-        singleton.valor = currentCount;
-        transient.valor = currentCount;
     }
 }
+ 

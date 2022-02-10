@@ -103,6 +103,13 @@ using BlazorApp1.Client.Repositorios;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\App.razor"
+using System.Reflection;
+
+#line default
+#line hidden
+#nullable disable
     public partial class App : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -110,6 +117,24 @@ using BlazorApp1.Client.Repositorios;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 16 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\App.razor"
+      
+    //Configuracion para lazy loading - descarcargar dlls solo cuando sea necesario (lo requiere un componente)
+    private List<Assembly> assemblies = new List<Assembly>();
+    private async Task OnNavigateAsync(NavigationContext args)
+    {
+        if (args.Path.EndsWith("counter"))
+        {
+            var assembliesCargados = await lazyLoader.LoadAssembliesAsync(new List<string> { "MathNet.Numerics.dll" });
+            assemblies.AddRange(assembliesCargados);
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader lazyLoader { get; set; }
     }
 }
 #pragma warning restore 1591

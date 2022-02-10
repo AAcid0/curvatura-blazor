@@ -1,4 +1,7 @@
-﻿<Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
+﻿@inject Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader lazyLoader
+@using System.Reflection
+@*AdditionalAssemblies permite cargar dlls despues o adicionales*@
+<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="assemblies" OnNavigateAsync="OnNavigateAsync" PreferExactMatches="@true">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
@@ -8,3 +11,17 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+
+@code{
+    //Configuracion para lazy loading - descarcargar dlls solo cuando sea necesario (lo requiere un componente)
+    private List<Assembly> assemblies = new List<Assembly>();
+    private async Task OnNavigateAsync(NavigationContext args)
+    {
+        if (args.Path.EndsWith("counter"))
+        {
+            var assembliesCargados = await lazyLoader.LoadAssembliesAsync(new List<string> { "MathNet.Numerics.dll" });
+            assemblies.AddRange(assembliesCargados);
+        }
+    }
+}

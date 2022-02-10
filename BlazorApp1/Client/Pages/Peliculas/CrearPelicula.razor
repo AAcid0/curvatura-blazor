@@ -1,0 +1,30 @@
+﻿@page "/peliculas/crear"
+
+<h3>Crear Pelicula</h3>
+
+<FormularioPeliculas  
+    GenerosNOSeleccionados="GenerosNOSeleccionados"
+    pelicula="pelicula" 
+    OnValidSubmit="Crear"/>
+
+@code {
+    private Pelicula pelicula = new Pelicula();
+    private List<Genero> GenerosNOSeleccionados = new List<Genero>();
+
+    protected override void OnInitialized()
+    {
+        GenerosNOSeleccionados = new List<Genero>()
+        {
+            new Genero(){Id = 1, Nombre="Comedia"},
+            new Genero(){Id = 2, Nombre="Acción"},
+            new Genero(){Id = 3, Nombre="Drama"},
+            new Genero(){Id = 4, Nombre="Terror"},
+            new Genero(){Id = 4, Nombre="Ciencia Ficción"}
+        };
+    }
+
+    void Crear()
+    {
+        Console.WriteLine("Pelicual creada");
+    }
+}

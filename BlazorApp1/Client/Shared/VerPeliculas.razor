@@ -1,50 +1,37 @@
 ﻿@inject IJSRuntime js
 
-<ListaGenerica Listado="listaPeliculas">
-    <conRegistros>
-        <PeliculaIndividual peli="context" mostrarBotones="mostrarBotones" eliminarPeli="eliminarPeli"/>
-    </conRegistros>
-</ListaGenerica>
+<div style="display:flex; flex-wrap: wrap; align-items: center;">
+    <ListaGenerica Listado="listaPeliculas">
+        <conRegistros>
+            <PeliculaIndividual peli="context"  eliminarPeli="eliminarPeli"/>
+        </conRegistros>
+    </ListaGenerica>
+</div>
 
-<Confirmacion @ref="confirmacion" onConfirm="confirmacionEliminado" onCancel="cancelarEliminado">
-    <h2>¿Desea Eliminar?</h2>
-</Confirmacion>
 
 @code {
-    Confirmacion confirmacion;
 
     //public List<Pelicula> listaPelis; Para pasar las pelis por parametro se hace lo de la sgt linea
     [Parameter] public List<Pelicula> listaPeliculas { get; set; }  //PARAMETRO
 
 
-    bool mostrarBotones = false;
+    
     Pelicula peliABorrar;
     async Task eliminarPeli(Pelicula pelicula)
     {
-        confirmacion.Mostrar();
         peliABorrar = pelicula;
         //EEJEMPLO DE INVOCACION DE FUNCIÓN JAVASCRIPT
-        //var conf = await js.InvokeAsync<bool>("confirm", $"¿Desea eliminar {pelicula.Titulo}?");
-        //if (conf)
-        //{
-        //    listaPeliculas.Remove(pelicula);
-        //    Console.WriteLine($"Se ha eliminado {pelicula.Titulo}");
-        //}
-        //else
-        //{
-        //    Console.WriteLine("Se ha cancelado la acción");
-        //}
+        var conf = await js.InvokeAsync<bool>("confirm", $"¿Desea eliminar {pelicula.Titulo}?");
+        if (conf)
+        {
+            listaPeliculas.Remove(pelicula);
+            Console.WriteLine($"Se ha eliminado {pelicula.Titulo}");
+        }
+        else
+        {
+            Console.WriteLine("Se ha cancelado la acción");
+        }
 
     }
-    void confirmacionEliminado()
-    {
-        listaPeliculas.Remove(peliABorrar);
-        confirmacion.Ocultar();
-        peliABorrar = null;
-    }
-
-    void cancelarEliminado()
-    {
-        confirmacion.Ocultar();    
-    }
+    
 }

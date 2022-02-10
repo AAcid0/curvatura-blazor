@@ -111,7 +111,7 @@ using BlazorApp1.Client.Repositorios;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Shared\NavMenu.razor"
+#line 48 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

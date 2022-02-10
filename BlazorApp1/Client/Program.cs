@@ -27,8 +27,6 @@ namespace BlazorApp1.Client
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ServiciosSingleton>(); //Se puede colocar cualquier clase de la app
-            services.AddTransient<ServiciosTransient>();
             services.AddSingleton<IRepositorio, Repositorio>();
         }
     }

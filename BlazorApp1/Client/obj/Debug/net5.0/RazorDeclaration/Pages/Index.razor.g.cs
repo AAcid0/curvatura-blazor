@@ -112,21 +112,13 @@ using BlazorApp1.Client.Repositorios;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Pages\Index.razor"
+#line 8 "C:\Users\JUAN\source\repos\BlazorApp1\BlazorApp1\Client\Pages\Index.razor"
       
 
-
-    //public string nomPeli;
-    //public DateTime fechaPeli;
-    //private List<Pelicula> obtenerPeliculas1(){ return new List<Pelicula>(); }
     private List<Pelicula> Peliculas;
     protected override void OnInitialized()
     {
         Peliculas = repo.ObtenerPeliculas();
-    }
-    void agregarPelicula()
-    {
-        Peliculas.Add(new Pelicula() { Titulo = "La última", Lanzamiento = DateTime.Today });
     }
 
     

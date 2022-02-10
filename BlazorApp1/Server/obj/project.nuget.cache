@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GCfONx4VfZtgjkA32AyH4ORQ4lD/CQVwJp4zHGIuX466Sjn7xdc/gaMxFz1QJn1QLyOx4shMEdSiGcKf8Sx2NA==",
+  "dgSpecHash": "a/WmR6I+ZgSn+8oyZj9d5hS282/ZnsG8jTfWR0ctOmtbFVShGbOizQSm/MpRPRYkrjviBir0GQuZGPqD7DQ40Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\JUAN\\source\\repos\\BlazorApp1\\BlazorApp1\\Server\\BlazorApp1.Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\JUAN\\.nuget\\packages\\mathnet.numerics\\4.15.0\\mathnet.numerics.4.15.0.nupkg.sha512",
     "C:\\Users\\JUAN\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.12\\microsoft.aspnetcore.authorization.5.0.12.nupkg.sha512",
     "C:\\Users\\JUAN\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.12\\microsoft.aspnetcore.components.5.0.12.nupkg.sha512",
     "C:\\Users\\JUAN\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.12\\microsoft.aspnetcore.components.analyzers.5.0.12.nupkg.sha512",
@@ -28,9 +29,11 @@
     "C:\\Users\\JUAN\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\JUAN\\.nuget\\packages\\microsoft.jsinterop\\5.0.12\\microsoft.jsinterop.5.0.12.nupkg.sha512",
     "C:\\Users\\JUAN\\.nuget\\packages\\microsoft.jsinterop.webassembly\\5.0.12\\microsoft.jsinterop.webassembly.5.0.12.nupkg.sha512",
+    "C:\\Users\\JUAN\\.nuget\\packages\\restsharp\\107.2.1\\restsharp.107.2.1.nupkg.sha512",
+    "C:\\Users\\JUAN\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\JUAN\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\JUAN\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
-    "C:\\Users\\JUAN\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+    "C:\\Users\\JUAN\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

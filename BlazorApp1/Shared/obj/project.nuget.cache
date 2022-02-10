@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "z7ToPJvTlStBoBU1DmzL5yUM2zU7xcWitZHmE9N4YJjMlKU+ovhn+TQR4CsRSMHHIdbI3OYRZ8FlmL2TdZcNYg==",
+  "dgSpecHash": "bqULvobC9oVabz54eXSqiOfRW8C1NZX7ItdeL6VjzO/Asn4/r2bNmEfL3cbmUkD9DaYiRhveKp8mIaVE5AbGzw==",
   "success": true,
   "projectFilePath": "C:\\Users\\JUAN\\source\\repos\\BlazorApp1\\BlazorApp1\\Shared\\BlazorApp1.Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\JUAN\\.nuget\\packages\\restsharp\\107.2.1\\restsharp.107.2.1.nupkg.sha512",
+    "C:\\Users\\JUAN\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\JUAN\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
